@@ -1,28 +1,40 @@
 import React, { HTMLAttributes } from "react";
-import { EColorMap } from "../../utils/colorMap";
-import { TFontSize } from "../..";
+import styled from "@emotion/styled";
+import { SerializedStyles, css } from "@emotion/react";
+import palette from "../../theme/palette";
 
-export interface ITextProps
-  extends HTMLAttributes<HTMLDivElement | HTMLSpanElement | HTMLHeadingElement> {
-  textColor?: EColorMap;
-  className?: string;
-  variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "block" | "inline";
-  weight?: "light" | "regular" | "medium" | "bold";
-  lineHeight?: "narrow" | "wide";
-  size?: TFontSize;
+export interface TextProps
+  extends HTMLAttributes<HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement> {
+  typo: SerializedStyles;
+  display?: "block";
+  textColor?: string;
   align?: "start" | "center" | "end";
 }
 
-export const Text: React.FC<ITextProps> = ({
-  className,
-  children,
-  variant = "block",
-  weight,
-  lineHeight,
-  size,
-  align,
-  textColor,
-  ...props
-}) => {
-  return <div>index</div>;
+const Text: React.FC<TextProps> = (props) => {
+  return (
+    <StyledText
+      typo={props.typo}
+      display={props.display}
+      align={props.align}
+      textColor={props.textColor}>
+      {props.children}
+    </StyledText>
+  );
 };
+
+const StyledText = styled.span<TextProps>`
+  white-space: pre-wrap;
+
+  ${({ typo }) => typo}
+  ${({ textColor }) =>
+    css`
+      color: ${textColor ?? palette.MONO_BLACK};
+    `}
+  ${({ display }) =>
+    css`
+      display: ${display};
+    `}
+`;
+
+export default Text;
