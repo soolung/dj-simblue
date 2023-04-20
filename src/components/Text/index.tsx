@@ -12,15 +12,7 @@ export interface TextProps
 }
 
 const Text: React.FC<TextProps> = (props) => {
-  return (
-    <StyledText
-      typo={props.typo}
-      display={props.display}
-      align={props.align}
-      textColor={props.textColor}>
-      {props.children}
-    </StyledText>
-  );
+  return <StyledText {...props}>{props.children}</StyledText>;
 };
 
 const StyledText = styled.span<TextProps>`
