@@ -2,7 +2,6 @@ import React from "react";
 import Text from "../components/Text";
 import typo from "../theme/typo";
 import palette from "../theme/palette";
-import { css } from "@emotion/react";
 
 export default {
   title: "Component/Text",
