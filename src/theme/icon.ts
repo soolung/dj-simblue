@@ -1,0 +1,15 @@
+export { ReactComponent as BSMLogo } from "../assets/icon/bsm.svg";
+export { ReactComponent as Cancel } from "../assets/icon/cancel.svg";
+export { ReactComponent as Complete } from "../assets/icon/complete.svg";
+export { ReactComponent as DownArrow } from "../assets/icon/down-arrow.svg";
+export { ReactComponent as Excel } from "../assets/icon/excel.svg";
+export { ReactComponent as Google } from "../assets/icon/google.svg";
+export { ReactComponent as Incomplete } from "../assets/icon/incomplete.svg";
+export { ReactComponent as LeftArrow } from "../assets/icon/left-arrow.svg";
+export { ReactComponent as PasswordLock } from "../assets/icon/password-lock.svg";
+export { ReactComponent as Pencil } from "../assets/icon/pencil.svg";
+export { ReactComponent as Question } from "../assets/icon/question.svg";
+export { ReactComponent as RightArrow } from "../assets/icon/right-arrow.svg";
+export { ReactComponent as Search } from "../assets/icon/search.svg";
+export { ReactComponent as User } from "../assets/icon/user.svg";
+export { ReactComponent as Waiting } from "../assets/icon/waiting.svg";
