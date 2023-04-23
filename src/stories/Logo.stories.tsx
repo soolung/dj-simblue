@@ -1,6 +1,6 @@
 import React from "react";
 import { SsamblueLogo, SimblueLogo } from "../components/Logo";
-import logoSize from "../theme/logoSize";
+import logoSize from "../theme/size";
 import Text from "../components/Text";
 import typo from "../theme/typo";
 import palette from "../theme/palette";
