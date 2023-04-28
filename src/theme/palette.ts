@@ -1,4 +1,6 @@
 const palette = {
+  NONE: "none",
+
   PRIMARY_50: "#FEF3F2",
   PRIMARY_100: "#FDE4E3",
   PRIMARY_200: "#FCCECC",
