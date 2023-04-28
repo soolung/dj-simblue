@@ -1,14 +1,13 @@
 import React, { HTMLAttributes } from "react";
 import styled from "@emotion/styled";
-import { SerializedStyles, css } from "@emotion/react";
+import { css } from "@emotion/react";
 import palette from "../../theme/palette";
+import { PaletteType, TypoTitleType, getColorFromName, getTypoFromName } from "../../utils/stories";
 
 export interface TextProps
   extends HTMLAttributes<HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement> {
-  typo: SerializedStyles;
-  display?: "block";
-  textColor?: string;
-  align?: "start" | "center" | "end";
+  typo: TypoTitleType;
+  textColor?: PaletteType;
 }
 
 const Text: React.FC<TextProps> = (props) => {
@@ -16,18 +15,14 @@ const Text: React.FC<TextProps> = (props) => {
 };
 
 const StyledText = styled.span<TextProps>`
-  display: flex;
+  display: inline-block;
   align-items: center;
   white-space: pre-wrap;
 
-  ${({ typo }) => typo}
+  ${({ typo }) => getTypoFromName(typo)}
   ${({ textColor }) =>
     css`
-      color: ${textColor ?? palette.MONO_BLACK};
-    `}
-  ${({ display }) =>
-    css`
-      display: ${display};
+      color: ${getColorFromName(textColor) ?? palette.MONO_BLACK};
     `}
 `;
 

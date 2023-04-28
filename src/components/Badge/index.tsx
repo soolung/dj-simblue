@@ -2,7 +2,6 @@ import React from "react";
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
 import Text from "../Text";
-import typo from "../../theme/typo";
 import { IconNameType } from "../../utils/stories";
 
 interface BadgeProps {
@@ -16,7 +15,7 @@ export const Badge = ({ mode = "Tag", text = "Default", children }: BadgeProps) 
   return (
     <BadgeStyle mode={mode}>
       {children}
-      <Text textColor={palette.MONO_WHITE} typo={typo.LABEL.X_SMALL}>
+      <Text textColor="MONO_WHITE" typo="LABEL_X_SMALL">
         {text}
       </Text>
     </BadgeStyle>
