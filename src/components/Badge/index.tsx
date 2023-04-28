@@ -2,13 +2,11 @@ import React from "react";
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
 import Text from "../Text";
-import { IconNameType } from "../../utils/stories";
 
 interface BadgeProps {
   text?: string;
   mode?: "Notification" | "Tag";
   children?: any;
-  iconName?: IconNameType;
 }
 
 export const Badge = ({ mode = "Tag", text = "Default", children }: BadgeProps) => {
