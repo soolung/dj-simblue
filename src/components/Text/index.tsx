@@ -16,6 +16,8 @@ const Text: React.FC<TextProps> = (props) => {
 };
 
 const StyledText = styled.span<TextProps>`
+  display: flex;
+  align-items: center;
   white-space: pre-wrap;
 
   ${({ typo }) => typo}
