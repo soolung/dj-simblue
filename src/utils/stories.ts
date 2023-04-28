@@ -1,10 +1,11 @@
 import * as Icons from "../theme/icon";
 import palette from "../theme/palette";
-import { iconSize } from "../theme/size";
+import logoSize, { iconSize } from "../theme/size";
 
 export type IconNameType = keyof typeof Icons;
 export type IconSizeType = keyof typeof iconSize;
 export type PaletteType = keyof typeof palette;
+export type LogoSizeType = keyof typeof logoSize;
 
 export const iconNames = [...(Object.keys(Icons) as IconNameType[])];
 
@@ -17,4 +18,8 @@ export const getIconComponentFromName = (iconName: IconNameType) => {
 
 export const getColorFromName = (colorName: PaletteType = "NONE") => {
   return palette[colorName];
+};
+
+export const getLogoSizeFromName = (size: LogoSizeType = "DEFAULT") => {
+  return logoSize[size];
 };

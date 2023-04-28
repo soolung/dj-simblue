@@ -1,8 +1,13 @@
 import React from "react";
+import { LogoSizeType, getLogoSizeFromName } from "../../../utils/stories";
 
-export const SimblueLogo = ({ size }: { size: number }) => {
+export const SimblueLogo = ({ size }: { size: LogoSizeType }) => {
   return (
-    <svg width={size} viewBox="0 0 97 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={getLogoSizeFromName(size)}
+      viewBox="0 0 97 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <mask
         id="path-1-outside-1_1318_454"
         maskUnits="userSpaceOnUse"
