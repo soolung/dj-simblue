@@ -11,10 +11,10 @@ export interface TextProps
 }
 
 const Text: React.FC<TextProps> = (props) => {
-  return <StyledText {...props}>{props.children}</StyledText>;
+  return <TextStyle {...props}>{props.children}</TextStyle>;
 };
 
-const StyledText = styled.span<TextProps>`
+const TextStyle = styled.span<TextProps>`
   display: inline-block;
   align-items: center;
   white-space: pre-wrap;
