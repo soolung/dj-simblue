@@ -3,30 +3,31 @@ import React, { HTMLAttributes } from "react";
 import { InputSizeType, getSizeFromName, inputSize } from "../../../theme/size";
 import palette from "../../../theme/palette";
 import Text from "../../Text";
-import { css } from "@emotion/react";
+import { Icon } from "../../Icon";
+import { IconNameType } from "../../../utils/stories";
 
 interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
   areaSize: InputSizeType;
   labelText?: string;
   hintText?: string;
-  hasIcon?: boolean;
+  icon?: IconNameType | "none";
 }
 
 export const TextInput = ({
   areaSize = "SMALL",
   labelText = "Label",
-  hintText,
-  children,
+  icon = "none",
+  ...props
 }: TextInputProps) => {
   return (
     <TextInputBox>
       <Text typo="LABEL_MEDIUM">{labelText}</Text>
       <Input>
-        <TextInputStyle hasIcon={!!children} areaSize={areaSize} />
-        {children}
+        <TextInputStyle icon={icon} areaSize={areaSize} />
+        {icon !== "none" && <Icon iconName={icon} />}
       </Input>
       <Text typo="PARAGRAPH_SMALL" textColor="GRAY_700">
-        {hintText}
+        {props.hintText}
       </Text>
     </TextInputBox>
   );
@@ -55,7 +56,7 @@ const TextInputStyle = styled.input<TextInputProps>`
   width: 100%;
   border-radius: 0.75rem;
   border: 1px solid ${palette.GRAY_100};
-  padding-left: ${({ hasIcon }) => (hasIcon ? 2.5 : 1)}rem;
+  padding-left: ${({ icon }) => (icon !== "none" ? 2.5 : 1)}rem;
   padding-right: 1rem;
   ${({ areaSize }) => getSizeFromName(inputSize, areaSize)}
   &::placeholder {

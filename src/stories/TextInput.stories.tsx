@@ -1,28 +1,21 @@
 import type { StoryObj } from "@storybook/react";
 import { TextInput } from "../components/Inputs/TextInput/TextInput";
-import { Icon } from "../components/Icon";
+import { iconNames } from "../utils/stories";
 
 type Story = StoryObj<typeof TextInput>;
 
 export default {
-  title: "Component/Inputs",
+  title: "Inputs/TextInput",
   component: TextInput,
+  argTypes: {
+    icon: { control: "select", options: iconNames },
+  },
 };
 
-export const Text: Story = {
+export const Default: Story = {
   render: (args) => (
     <div style={{ width: "calc(100% - 32px)" }}>
       <TextInput {...args} />
-    </div>
-  ),
-};
-
-export const TextWithIcon: Story = {
-  render: (args) => (
-    <div style={{ width: "calc(100% - 32px)" }}>
-      <TextInput {...args}>
-        <Icon iconName="User" />
-      </TextInput>
     </div>
   ),
 };
