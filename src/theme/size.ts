@@ -23,4 +23,14 @@ export const buttonSize = {
   `,
 };
 
-export default logoSize;
+export const inputSize = {
+  SMALL: css``,
+};
+
+export type IconSizeType = keyof typeof iconSize;
+export type LogoSizeType = keyof typeof logoSize;
+export type BtnSizeType = keyof typeof buttonSize;
+
+export const getSizeFromName = (as: any, name: IconSizeType | LogoSizeType | BtnSizeType) => {
+  return as[name];
+};

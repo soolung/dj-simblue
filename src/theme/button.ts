@@ -14,3 +14,9 @@ export const buttonState = {
     background-color: ${palette.GRAY_200};
   `,
 };
+
+export type BtnStateType = keyof typeof buttonState;
+
+export const getBtnStateFromName = (state: BtnStateType) => {
+  return buttonState[state];
+};

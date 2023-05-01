@@ -1,10 +1,10 @@
 import React from "react";
-import { LogoSizeType, getLogoSizeFromName } from "../../../utils/stories";
+import { LogoSizeType, getSizeFromName, logoSize } from "../../../theme/size";
 
-export const SsamblueLogo = ({ size }: { size: LogoSizeType }) => {
+export const SsamblueLogo = ({ size = "DEFAULT" }: { size: LogoSizeType }) => {
   return (
     <svg
-      width={getLogoSizeFromName(size)}
+      width={getSizeFromName(logoSize, size)}
       viewBox="0 0 96 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">

@@ -1,15 +1,11 @@
 import React, { HTMLAttributes } from "react";
-import {
-  BtnSizeType,
-  BtnStateType,
-  getBtnSizeFromName,
-  getBtnStateFromName,
-} from "../../utils/stories";
 import styled from "@emotion/styled";
 import Text from "../Text";
+import { BtnSizeType, buttonSize, getSizeFromName } from "../../theme/size";
+import { BtnStateType, getBtnStateFromName } from "../../theme/button";
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  size?: BtnSizeType;
+  size: BtnSizeType;
   state: BtnStateType;
   text?: string;
 }
@@ -29,11 +25,11 @@ export const Button = ({
 };
 
 export const ButtonStyle = styled.button<ButtonProps>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   border-radius: 0.4rem;
   color: white;
   gap: 0.625rem;
-  ${({ size }) => getBtnSizeFromName(size)}
+  ${({ size }) => getSizeFromName(buttonSize, size)}
   ${({ state }) => getBtnStateFromName(state)}
 `;

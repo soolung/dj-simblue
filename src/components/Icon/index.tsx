@@ -1,11 +1,5 @@
 import React, { createElement } from "react";
-import {
-  IconNameType,
-  IconSizeType,
-  PaletteType,
-  getColorFromName,
-  getIconComponentFromName,
-} from "../../utils/stories";
+import { IconNameType, IconSizeType, getIconComponentFromName } from "../../utils/stories";
 import { iconSize } from "../../theme/size";
 import styled from "@emotion/styled";
 

@@ -36,4 +36,10 @@ const palette = {
   RED_500: "#F83445",
 } as const;
 
+export type PaletteType = keyof typeof palette;
+
+export const getColorFromName = (colorName: PaletteType = "NONE") => {
+  return palette[colorName];
+};
+
 export default palette;

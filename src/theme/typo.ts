@@ -95,4 +95,10 @@ const typo = {
   `,
 };
 
+export type TypoTitleType = keyof typeof typo;
+
+export const getTypoFromName = (typoName: TypoTitleType) => {
+  return typo[typoName];
+};
+
 export default typo;

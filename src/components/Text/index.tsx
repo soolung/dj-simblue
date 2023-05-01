@@ -1,8 +1,8 @@
 import React, { HTMLAttributes } from "react";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import palette from "../../theme/palette";
-import { PaletteType, TypoTitleType, getColorFromName, getTypoFromName } from "../../utils/stories";
+import palette, { PaletteType, getColorFromName } from "../../theme/palette";
+import { TypoTitleType, getTypoFromName } from "../../theme/typo";
 
 export interface TextProps
   extends HTMLAttributes<HTMLSpanElement | HTMLHeadingElement | HTMLParagraphElement> {
