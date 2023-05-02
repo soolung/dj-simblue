@@ -23,7 +23,7 @@ export const TextInput = ({
     <TextInputBox>
       <Text typo="LABEL_MEDIUM">{labelText}</Text>
       <Input>
-        <TextInputStyle icon={icon} areaSize={areaSize} />
+        <TextInputStyle icon={icon} areaSize={areaSize} {...props} />
         {icon !== "none" && <Icon iconName={icon} />}
       </Input>
       <Text typo="PARAGRAPH_SMALL" textColor="GRAY_700">
