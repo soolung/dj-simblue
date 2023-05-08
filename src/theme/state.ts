@@ -31,7 +31,6 @@ export const toggleState = {
 
 export const checkboxState = {
   CHECKED: css`
-    color: white;
     background-color: ${palette.PRIMARY_400};
   `,
   UNCHECKED: css`
@@ -40,13 +39,30 @@ export const checkboxState = {
   `,
 };
 
+export const radioState = {
+  CHECKED: css`
+    border: 1px solid ${palette.PRIMARY_400};
+    div {
+      display: block;
+    }
+  `,
+  UNCHECKED: css`
+    background-color: ${palette.MONO_WHITE};
+    border: 1px solid ${palette.GRAY_200};
+    div {
+      display: none;
+    }
+  `,
+};
+
 export type BtnStateType = keyof typeof buttonState;
 export type ToggleStateType = keyof typeof toggleState;
 export type CheckboxStateType = keyof typeof checkboxState;
+export type RadioStateType = keyof typeof radioState;
 
 export const getStateFromName = (
   as: any,
-  state: BtnStateType | ToggleStateType | CheckboxStateType
+  state: BtnStateType | ToggleStateType | CheckboxStateType | RadioStateType
 ) => {
   return as[state];
 };
