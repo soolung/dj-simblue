@@ -23,5 +23,6 @@ const CheckboxStyle = styled.button<{ state: CheckboxStateType }>`
   height: 30px;
   border-radius: 30px;
   cursor: pointer;
+  transition: 0.2s;
   ${({ state }) => getStateFromName(checkboxState, state)}
 `;
