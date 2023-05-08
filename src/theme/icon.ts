@@ -1,5 +1,6 @@
 export { ReactComponent as BSMLogo } from "../assets/icon/bsm.svg";
 export { ReactComponent as Cancel } from "../assets/icon/cancel.svg";
+export { ReactComponent as Check } from "../assets/icon/check.svg";
 export { ReactComponent as Complete } from "../assets/icon/complete.svg";
 export { ReactComponent as DownArrow } from "../assets/icon/down-arrow.svg";
 export { ReactComponent as Excel } from "../assets/icon/excel.svg";
