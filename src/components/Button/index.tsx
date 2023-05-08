@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from "react";
 import styled from "@emotion/styled";
 import Text from "../Text";
 import { BtnSizeType, buttonSize, getSizeFromName } from "../../theme/size";
-import { BtnStateType, getBtnStateFromName } from "../../theme/button";
+import { BtnStateType, buttonState, getStateFromName } from "../../theme/state";
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size: BtnSizeType;
@@ -31,5 +31,5 @@ export const ButtonStyle = styled.button<ButtonProps>`
   color: white;
   gap: 0.625rem;
   ${({ size }) => getSizeFromName(buttonSize, size)}
-  ${({ state }) => getBtnStateFromName(state)}
+  ${({ state }) => getStateFromName(buttonState, state)}
 `;

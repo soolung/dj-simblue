@@ -15,8 +15,23 @@ export const buttonState = {
   `,
 };
 
-export type BtnStateType = keyof typeof buttonState;
+export const toggleState = {
+  ENABLED: css`
+    span {
+      background-color: ${palette.MONO_WHITE};
+    }
+  `,
+  DISABLED: css`
+    background-color: ${palette.GRAY_100};
+    span {
+      background-color: ${palette.GRAY_300};
+    }
+  `,
+};
 
-export const getBtnStateFromName = (state: BtnStateType) => {
-  return buttonState[state];
+export type BtnStateType = keyof typeof buttonState;
+export type ToggleStateType = keyof typeof toggleState;
+
+export const getStateFromName = (as: any, state: BtnStateType) => {
+  return as[state];
 };
