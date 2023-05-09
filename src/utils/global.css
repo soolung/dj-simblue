@@ -32,3 +32,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 0px;
+}
