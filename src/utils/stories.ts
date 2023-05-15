@@ -6,6 +6,6 @@ export type IconSizeType = keyof typeof iconSize;
 
 export const iconNames = ["none" as const, ...(Object.keys(Icons) as IconNameType[])];
 
-export const getIconComponentFromName = (iconName: IconNameType = "BSMLogo") => {
+export const getIconComponentFromName = (iconName: IconNameType = "ArrowBack") => {
   return Icons[iconName];
 };
