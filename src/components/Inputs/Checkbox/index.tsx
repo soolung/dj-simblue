@@ -10,7 +10,7 @@ export const Checkbox = () => {
     <CheckboxStyle
       state={isCheck}
       onClick={() => setIsCheck((prev) => (prev === "CHECKED" ? "UNCHECKED" : "CHECKED"))}>
-      <Icon iconName="Check" />
+      <Icon size="LARGE" color="MONO_WHITE" iconName="CheckLine" />
     </CheckboxStyle>
   );
 };
