@@ -32,4 +32,8 @@ export const ButtonStyle = styled.button<ButtonProps>`
   gap: 0.625rem;
   ${({ size }) => getSizeFromName(buttonSize, size)}
   ${({ state }) => getStateFromName(buttonState, state)}
+
+  &:active {
+    box-shadow: inset 999px 999px 4px rgba(255, 255, 255, 0.2);
+  }
 `;
