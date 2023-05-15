@@ -13,7 +13,7 @@ interface IconProps {
 export const Icon = ({
   iconName = "ArrowBack",
   size = "MEDIUM",
-  color = "GRAY_400",
+  color = "MONO_BLACK",
 }: IconProps) => {
   return (
     <IconStyle color={color} size={size}>
