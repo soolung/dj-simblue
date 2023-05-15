@@ -16,7 +16,7 @@ export const Default: Story = {
 export const WithIcon: Story = {
   render: (args) => (
     <Badge {...args}>
-      <Icon size="SMALL" iconName="ArrowBack" />
+      <Icon size="SMALL" iconName="Check" color="GREEN_400" />
     </Badge>
   ),
 };

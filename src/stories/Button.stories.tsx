@@ -16,7 +16,7 @@ export const Default: Story = {
 export const WithIcon: Story = {
   render: (args) => (
     <Button {...args}>
-      <Icon size="SMALL" iconName="ArrowBack" />
+      <Icon size="SMALL" iconName="ArrowBack" color="MONO_WHITE" />
     </Button>
   ),
 };
