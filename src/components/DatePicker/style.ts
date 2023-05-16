@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
 import { css } from "@emotion/react";
+import { DateStateType, dateState, getStateFromName } from "../../theme/state";
 
 export const PickerStyle = styled.div`
   position: absolute;
@@ -46,19 +47,14 @@ export const HeadRow = styled.div`
   cursor: pointer;
 `;
 
-export const TableRow = styled(HeadRow)<{ isSelected?: boolean }>`
+export const TableRow = styled(HeadRow)<{ state?: DateStateType }>`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 6rem;
   aspect-ratio: 1/1;
   cursor: pointer;
-
-  ${({ isSelected }) =>
-    isSelected &&
-    css`
-      background-color: ${palette.PRIMARY_400};
-    `}
+  ${({ state }) => getStateFromName(dateState, state!)}
 
   &:hover {
     border: 1px solid ${palette.PRIMARY_400};
@@ -68,6 +64,19 @@ export const TableRow = styled(HeadRow)<{ isSelected?: boolean }>`
     border: 1px solid ${palette.PRIMARY_400};
     background-color: ${palette.PRIMARY_100};
   }
+`;
+
+export const RowBox = styled.div<{ state?: DateStateType }>`
+  width: 100%;
+  ${({ state }) =>
+    state === "START"
+      ? css`
+          background: linear-gradient(90deg, ${palette.MONO_WHITE} 40%, ${palette.PRIMARY_100});
+        `
+      : state === "END" &&
+        css`
+          background: linear-gradient(90deg, ${palette.PRIMARY_100}, ${palette.MONO_WHITE} 40%);
+        `}
 `;
 
 export const Rows = styled.div`

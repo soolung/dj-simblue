@@ -51,14 +51,34 @@ export const radioState = {
   `,
 };
 
+export const dateState = {
+  START: css`
+    background-color: ${palette.PRIMARY_400};
+  `,
+  ELEMENT: css`
+    border-radius: 0px;
+    background-color: ${palette.PRIMARY_100};
+  `,
+  END: css`
+    background-color: ${palette.PRIMARY_400};
+  `,
+  NONE: css`
+    background-color: ${palette.MONO_WHITE};
+  `,
+  POINT: css`
+    background-color: ${palette.PRIMARY_400};
+  `,
+};
+
 export type BtnStateType = keyof typeof buttonState;
 export type ToggleStateType = keyof typeof toggleState;
 export type CheckboxStateType = keyof typeof checkboxState;
 export type RadioStateType = keyof typeof radioState;
+export type DateStateType = keyof typeof dateState;
 
 export const getStateFromName = (
   as: any,
-  state: BtnStateType | ToggleStateType | CheckboxStateType | RadioStateType
+  state: BtnStateType | ToggleStateType | CheckboxStateType | RadioStateType | DateStateType
 ) => {
   return as[state];
 };
