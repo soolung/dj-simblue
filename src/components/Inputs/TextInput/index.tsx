@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { HTMLAttributes } from "react";
 import { InputSizeType, getSizeFromName, inputSize } from "../../../theme/size";
-import palette from "../../../theme/palette";
+import palette, { PaletteType } from "../../../theme/palette";
 import Text from "../../Text";
 import { Icon } from "../../Icon";
 import { IconNameType } from "../../../utils/stories";
@@ -11,6 +11,7 @@ interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
   labelText?: string;
   hintText?: string;
   icon?: IconNameType | "none";
+  iconColor?: PaletteType;
 }
 
 export const TextInput = ({
@@ -24,7 +25,7 @@ export const TextInput = ({
       <Text typo="LABEL_MEDIUM">{labelText}</Text>
       <Input>
         <TextInputStyle icon={icon} areaSize={areaSize} {...props} />
-        {icon !== "none" && <Icon iconName={icon} />}
+        {icon !== "none" && <Icon iconName={icon} color={props.iconColor} />}
       </Input>
       <Text typo="PARAGRAPH_SMALL" textColor="GRAY_700">
         {props.hintText}
