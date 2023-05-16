@@ -2,6 +2,7 @@ import React from "react";
 import { DateType } from "../../../utils/date";
 import { MonthPicker } from "./Month";
 import { YearPicker } from "./Year";
+import * as S from "../style";
 
 type OptionProps = {
   selected: DateType;
@@ -16,9 +17,13 @@ export const OptionPicker = ({
   setClicked,
   type = "month",
 }: OptionProps) => {
-  return type === "month" ? (
-    <MonthPicker selected={selected} setSelected={setSelected} setClicked={setClicked} />
-  ) : (
-    <YearPicker selected={selected} setSelected={setSelected} setClicked={setClicked} />
+  return (
+    <S.PickerStyle style={{ zIndex: "4" }}>
+      {type === "month" ? (
+        <MonthPicker selected={selected} setSelected={setSelected} setClicked={setClicked} />
+      ) : (
+        <YearPicker selected={selected} setSelected={setSelected} setClicked={setClicked} />
+      )}
+    </S.PickerStyle>
   );
 };

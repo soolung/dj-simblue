@@ -26,7 +26,7 @@ export const MonthPicker = ({ selected, setSelected, setClicked }: OptionProps) 
   };
 
   return (
-    <S.PickerStyle style={{ zIndex: "4" }}>
+    <>
       <S.Head>
         <Icon onClick={() => moveDate("last")} iconName="ArrowBack" style={{ cursor: "pointer" }} />
         <S.HeadNow>
@@ -49,6 +49,6 @@ export const MonthPicker = ({ selected, setSelected, setClicked }: OptionProps) 
           </S.Row>
         ))}
       </S.Rows>
-    </S.PickerStyle>
+    </>
   );
 };
