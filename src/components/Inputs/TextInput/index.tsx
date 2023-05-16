@@ -12,6 +12,7 @@ interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
   hintText?: string;
   icon?: IconNameType | "none";
   iconColor?: PaletteType;
+  isRequired?: boolean;
 }
 
 export const TextInput = ({
@@ -22,7 +23,15 @@ export const TextInput = ({
 }: TextInputProps) => {
   return (
     <TextInputBox>
-      <Text typo="LABEL_MEDIUM">{labelText}</Text>
+      <Text typo="LABEL_MEDIUM">
+        {labelText}
+        {props.isRequired && (
+          <Text typo="PARAGRAPH_MEDIUM" textColor="PRIMARY_400">
+            {" *"}
+          </Text>
+        )}
+      </Text>
+
       <Input>
         <TextInputStyle icon={icon} areaSize={areaSize} {...props} />
         {icon !== "none" && <Icon iconName={icon} color={props.iconColor} />}
