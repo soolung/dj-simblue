@@ -1,10 +1,10 @@
-import React, { createElement } from "react";
+import React, { HTMLAttributes, createElement } from "react";
 import { IconNameType, IconSizeType, getIconComponentFromName } from "../../utils/stories";
 import { iconSize } from "../../theme/size";
 import styled from "@emotion/styled";
 import { PaletteType, getColorFromName } from "../../theme/palette";
 
-interface IconProps {
+interface IconProps extends HTMLAttributes<HTMLDivElement> {
   iconName?: IconNameType;
   size?: IconSizeType;
   color?: PaletteType;
@@ -14,9 +14,10 @@ export const Icon = ({
   iconName = "ArrowBack",
   size = "MEDIUM",
   color = "MONO_BLACK",
+  ...props
 }: IconProps) => {
   return (
-    <IconStyle color={color} size={size}>
+    <IconStyle {...props} color={color} size={size}>
       {createElement(getIconComponentFromName(iconName))}
     </IconStyle>
   );
