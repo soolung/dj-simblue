@@ -39,7 +39,6 @@ const SearchBox = styled.div`
   display: flex;
   position: relative;
   width: 24.125rem;
-  height: 1.25rem;
   align-items: center;
 
   svg {
@@ -51,7 +50,6 @@ const SearchBox = styled.div`
 
 const SearchStyle = styled.input`
   width: 100%;
-  height: 100%;
   padding: 0.5rem 3rem;
   background-color: ${palette.GRAY_50};
   border: none;
