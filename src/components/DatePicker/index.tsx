@@ -28,7 +28,14 @@ export const DatePicker = () => {
   };
 
   const selectDate = (item: DateType) => {
-    if (endDate === null) {
+    if (
+      item.date === selected.date &&
+      item.month === selected.month &&
+      item.year === selected.year
+    ) {
+      setSelected(item);
+      setEndDate(null);
+    } else if (endDate === null) {
       if (item.date < selected.date && item.month > selected.month) setEndDate(item);
       else if (item.date < selected.date || item.month < selected.month) {
         setEndDate(selected);
