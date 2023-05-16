@@ -12,7 +12,7 @@ export default {
 export const Default: Story = {
   render: (args) => (
     <div>
-      <Text {...args}>심청이입니다.</Text>
+      <Text {...args}>심청이 디자인 시스템 DJ 심청이입니다.</Text>
     </div>
   ),
 };
