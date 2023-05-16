@@ -71,11 +71,11 @@ export const DatePicker = () => {
         </S.Head>
         <S.TableRows>
           {days.map((d) => (
-            <S.TableRow>
+            <S.HeadRow>
               <Text typo="PARAGRAPH_SMALL" textColor="GRAY_800">
                 {d}
               </Text>
-            </S.TableRow>
+            </S.HeadRow>
           ))}
         </S.TableRows>
         {selectedMonth.date.map((w) => (

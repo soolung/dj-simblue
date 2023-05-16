@@ -37,7 +37,16 @@ export const TableRows = styled.div`
   grid-template-columns: 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem;
 `;
 
-export const TableRow = styled.div<{ isSelected?: boolean }>`
+export const HeadRow = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6rem;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+`;
+
+export const TableRow = styled(HeadRow)<{ isSelected?: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
