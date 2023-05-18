@@ -21,6 +21,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "release": "auto shipit --base-branch=dist",
     "build": "cross-env BABEL_ENV=production babel src -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
