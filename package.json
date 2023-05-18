@@ -1,7 +1,7 @@
 {
-  "name": "dj-simblue",
+  "name": "@k99hyerin/dj-simblue",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -21,10 +21,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "build": "cross-env BABEL_ENV=production babel src -d dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=10b69a5dab76"
@@ -58,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.21.5",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
     "@storybook/addon-links": "^7.0.6",
@@ -66,12 +64,29 @@
     "@storybook/react": "^7.0.6",
     "@storybook/react-webpack5": "^7.0.6",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "auto": "^10.46.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chromatic": "^6.17.4",
+    "cross-env": "^7.0.3",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.6",
     "webpack": "^5.79.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "dj-simblue@0.1.0"
+  "_id": "dj-simblue@0.1.0",
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ]
+  },
+  "description": "design system for simblue web",
+  "main": "dist/index.js",
+  "repository": "https://github.com/soolung/dj-simblue.git",
+  "author": "kimhyerin0909 <khyerin0909@gmail.com>",
+  "license": "MIT"
 }
