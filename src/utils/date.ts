@@ -24,7 +24,7 @@ export const getMonthDate = (newDate: DateType, page = 0) => {
       : prevMonthLastDate.day === 6
       ? doMonth
       : getNewDateObj(new Date(doMonth.year, doMonth.month - 1, -prevMonthLastDate.day));
-  let monthDate = [];
+  let monthDate:DateType[] = [];
   for (let i = 0; i < 42; i++) {
     monthDate.push(
       getNewDateObj(new Date(startDate.year, startDate.month - 1, startDate.date + i))
