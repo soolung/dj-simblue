@@ -1,22 +1,15 @@
 # Workflow name
 name: "DJ 심청이 CI"
 
-# Event for the workflow
 on: push
 
-# List of jobs
 jobs:
   test:
-    # Operating System
     runs-on: ubuntu-latest
-    # Job steps
     steps:
       - uses: actions/checkout@v1
       - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
       - uses: chromaui/action@v1
-        # Options required for Chromatic's GitHub Action
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/intro-to-storybook/react/ko/deploy/ to obtain it
           projectToken: 10b69a5dab76
           token: ${{ secrets.GITHUB_TOKEN }}
