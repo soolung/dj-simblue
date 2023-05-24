@@ -60,3 +60,5 @@ const SearchStyle = styled.input`
     color: ${palette.GRAY_500};
   }
 `;
+
+export default Search;

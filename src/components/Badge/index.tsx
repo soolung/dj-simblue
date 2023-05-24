@@ -28,3 +28,5 @@ export const BadgeStyle = styled.div<BadgeProps>`
   background-color: ${(props) =>
     props.mode === "Notification" ? palette.PRIMARY_400 : palette.GREEN_200};
 `;
+
+export default Badge;

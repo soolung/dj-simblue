@@ -82,3 +82,5 @@ export const getStateFromName = (
 ) => {
   return as[state];
 };
+
+export default { buttonState, toggleState, checkboxState, radioState, dateState };

@@ -74,3 +74,5 @@ export const SsamblueLogo = ({ size = "DEFAULT" }: { size: LogoSizeType }) => {
     </svg>
   );
 };
+
+export default SsamblueLogo;

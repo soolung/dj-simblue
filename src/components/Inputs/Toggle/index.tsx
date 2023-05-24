@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "@emotion/styled";
 import { ToggleStateType, getStateFromName, toggleState } from "../../../theme/state";
 import { useState } from "react";
@@ -50,3 +51,5 @@ const Thumb = styled.span`
   transition: transform 100ms ease-out 0s;
   background-color: ${palette.MONO_WHITE};
 `;
+
+export default Toggle;

@@ -73,3 +73,5 @@ const TextInputStyle = styled.input<TextInputProps>`
     color: ${palette.GRAY_700};
   }
 `;
+
+export default TextInput;

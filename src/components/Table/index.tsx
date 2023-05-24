@@ -48,3 +48,5 @@ const TableStyle = styled.table`
     border-bottom: 1px solid ${palette.GRAY_100};
   }
 `;
+
+export default Table;

@@ -36,3 +36,5 @@ export const IconStyle = styled.div<{
     fill: ${({ color }) => getColorFromName(color)};
   }
 `;
+
+export default Icon;
