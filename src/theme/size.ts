@@ -48,3 +48,5 @@ export type InputSizeType = keyof typeof inputSize;
 export const getSizeFromName = (as: any, name: IconSizeType | LogoSizeType | BtnSizeType) => {
   return as[name];
 };
+
+export default { iconSize, logoSize, buttonSize, inputSize };

@@ -1,3 +1,4 @@
+import React from "react";
 import type { StoryObj } from "@storybook/react";
 import { Search } from "../components/Inputs/Search";
 import { SearchPerson } from "../components/Inputs/SearchPerson";

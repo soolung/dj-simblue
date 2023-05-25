@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { CheckboxStateType, checkboxState, getStateFromName } from "../../../theme/state";
@@ -26,3 +27,5 @@ const CheckboxStyle = styled.button<{ state: CheckboxStateType }>`
   transition: 0.2s;
   ${({ state }) => getStateFromName(checkboxState, state)}
 `;
+
+export default Checkbox;

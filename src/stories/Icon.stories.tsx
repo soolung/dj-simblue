@@ -1,3 +1,4 @@
+import React from "react";
 import type { StoryObj } from "@storybook/react";
 import { Icon } from "../components/Icon";
 

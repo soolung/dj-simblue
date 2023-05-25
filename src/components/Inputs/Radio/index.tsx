@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { RadioStateType, getStateFromName, radioState } from "../../../theme/state";
@@ -32,3 +33,5 @@ const Circle = styled.div`
   border-radius: 24px;
   background-color: ${palette.PRIMARY_400};
 `;
+
+export default Radio;

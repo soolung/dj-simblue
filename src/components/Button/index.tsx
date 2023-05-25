@@ -37,3 +37,5 @@ export const ButtonStyle = styled.button<ButtonProps>`
     box-shadow: inset 999px 999px 4px rgba(255, 255, 255, 0.2);
   }
 `;
+
+export default Button;

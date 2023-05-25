@@ -53,3 +53,5 @@ const Content = styled.div`
   border-radius: 0.75rem;
   filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
 `;
+
+export default Dropdown;

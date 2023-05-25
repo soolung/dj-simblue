@@ -1,11 +1,26 @@
 {
   "name": "@k99hyerin/dj-simblue",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": false,
+  "readme": "ERROR: No README data found!",
+  "_id": "dj-simblue@1.0.0",
+  "description": "design system for simblue web",
+  "main": "dist/index.js",
+  "repository": "https://github.com/soolung/dj-simblue.git",
+  "author": "kimhyerin0909 <khyerin0909@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@svgr/webpack": "^7.0.0",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@svgr/rollup": "^8.0.1",
+    "@svgr/webpack": "^8.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -15,17 +30,20 @@
     "@types/react-dom": "^18.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-is": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "rollup-plugin-url": "^3.0.1",
     "storybook-color-picker": "^3.1.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "release": "auto shipit --base-branch=dist",
-    "build": "cross-env BABEL_ENV=production babel src -d dist",
+    "build": "rollup -c",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=10b69a5dab76"
+    "chromatic": "npx chromatic --project-token=10b69a5dab76",
+    "build:types": "tsc --emitDeclarationOnly"
   },
   "eslintConfig": {
     "extends": [
@@ -70,24 +88,35 @@
     "chromatic": "^6.17.4",
     "cross-env": "^7.0.3",
     "prop-types": "^15.8.1",
+    "rollup": "^3.22.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^7.0.6",
     "webpack": "^5.79.0"
   },
-  "readme": "ERROR: No README data found!",
-  "_id": "dj-simblue@0.1.0",
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "absoluteRuntime": false
-        }
-      ]
-    ]
-  },
-  "description": "design system for simblue web",
-  "main": "dist/index.js",
-  "repository": "https://github.com/soolung/dj-simblue.git",
-  "author": "kimhyerin0909 <khyerin0909@gmail.com>",
-  "license": "MIT"
+  "peerDependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@rollup/plugin-alias": "^5.0.0",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@svgr/rollup": "^8.0.1",
+    "@svgr/webpack": "^8.0.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "rollup-plugin-url": "^3.0.1",
+    "storybook-color-picker": "^3.1.0",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  }
 }

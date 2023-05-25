@@ -137,3 +137,5 @@ export const SimblueLogo = ({ size = "DEFAULT" }: { size: LogoSizeType }) => {
     </svg>
   );
 };
+
+export default SimblueLogo;
