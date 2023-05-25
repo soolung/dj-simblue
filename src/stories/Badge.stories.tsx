@@ -1,3 +1,4 @@
+import React from "react";
 import type { StoryObj } from "@storybook/react";
 import { Badge } from "../components/Badge";
 import { Icon } from "../components/Icon";

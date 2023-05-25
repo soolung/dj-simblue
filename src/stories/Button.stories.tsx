@@ -1,3 +1,4 @@
+import React from "react";
 import { StoryObj } from "@storybook/react";
 import { Button } from "../components/Button";
 import { Icon } from "../components/Icon";

@@ -1,3 +1,4 @@
+import React from "react";
 import type { StoryObj } from "@storybook/react";
 import { Toggle } from "../components/Inputs/Toggle";
 
