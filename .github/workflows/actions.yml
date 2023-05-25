@@ -10,6 +10,6 @@ jobs:
       - name: Install and Build 🔧
         run: |
           yarn install
-          yarn deploy-storybook -- --ci --host-token-env-variable=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
+          yarn deploy-storybook -- --ci
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -120,5 +120,10 @@
     "storybook-color-picker": "^3.1.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
+  },
+  "storybook-deployer": {
+    "gitUsername": "kimhyerin0909",
+    "gitEmail": " khyerin0909@gmail.com ",
+    "commitMessage": "Deploy Storybook [skip ci] "
   }
 }
