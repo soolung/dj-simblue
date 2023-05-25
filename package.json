@@ -19,6 +19,7 @@
     "@emotion/styled": "^11.10.6",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-replace": "^5.0.2",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@svgr/rollup": "^8.0.1",
     "@svgr/webpack": "^8.0.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -43,7 +44,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=10b69a5dab76",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
     "extends": [
