@@ -1,7 +1,9 @@
 # Workflow name
 name: "DJ 심청이 CI"
 
-on: push
+on:
+  push:
+    branches: [master]
 
 jobs:
   test:
