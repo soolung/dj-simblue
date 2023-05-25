@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Setup credentials to access private repositories
+        run: git config --global url.https://${{ secrets.TOKEN }}@github.com/.insteadOf https://github.com/
+      - name: Step that does stuff with Git
+        run: some git commands
       - name: Install and Build 🔧
         run: |
           yarn install
