@@ -125,7 +125,7 @@
   },
   "storybook-deployer": {
     "gitUsername": "kimhyerin0909",
-    "gitEmail": " khyerin0909@gmail.com ",
+    "gitEmail": "khyerin0909@gmail.com",
     "commitMessage": "Deploy Storybook [skip ci] "
   }
 }
