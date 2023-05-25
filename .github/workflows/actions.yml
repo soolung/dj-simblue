@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Github remote
-        run: git remote set-url --push origin https://kimhyerin0909:${{ secrets.GITHUB_TOKEN }}@github.com/dj-simblue
+        run: git remote set-url --push origin git@github.com:kimhyerin0909/dj-simblue.git
       - name: Install and Build 🔧
         run: |
           yarn install
