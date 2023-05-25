@@ -14,4 +14,4 @@ jobs:
           yarn install
           yarn deploy-storybook -- --ci
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
