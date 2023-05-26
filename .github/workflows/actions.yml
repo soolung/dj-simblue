@@ -8,7 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Github remote
-        run: git config --global url.https://${{ secrets.GITHUB_TOKEN }}@github.com/.insteadOf https://github.com/
+        run: git remote set-url origin git@github.com:kimhyerin0909/dj-simblue.git
+        # run: git config --global url.https://${{ secrets.GITHUB_TOKEN }}@github.com/.insteadOf https://github.com/
       - name: Install and Build 🔧
         run: |
           yarn install
