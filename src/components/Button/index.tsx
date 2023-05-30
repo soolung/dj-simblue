@@ -7,6 +7,7 @@ import palette from "../../theme/palette";
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size: BtnSizeType;
+  color: "primary" | "white";
   isDisabled: boolean;
   text?: string;
 }
@@ -15,10 +16,12 @@ export const Button = ({
   text = "button",
   size = "X_SMALL",
   isDisabled = false,
+  color = "primary",
   children,
+  ...props
 }: ButtonProps) => {
   return (
-    <ButtonStyle size={size} isDisabled={isDisabled}>
+    <ButtonStyle color={color} size={size} isDisabled={isDisabled} {...props}>
       {children}
       <Text typo={`LABEL_${size}`}>{text}</Text>
     </ButtonStyle>
@@ -39,6 +42,19 @@ export const ButtonStyle = styled.button<ButtonProps>`
     css`
       color: ${palette.GRAY_400};
       background-color: ${palette.GRAY_200};
+    `}
+
+
+    ${({ color }) =>
+    color === "white" &&
+    css`
+      color: ${palette.MONO_BLACK};
+      border: 2px solid ${palette.GRAY_50};
+      background-color: ${palette.MONO_WHITE};
+
+      &:active {
+        background-color: ${palette.GRAY_50};
+      }
     `}
 
   &:active {
