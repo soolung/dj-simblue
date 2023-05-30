@@ -17,8 +17,11 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
     "@rollup/plugin-alias": "^5.0.0",
     "@rollup/plugin-replace": "^5.0.2",
+    "@storybook/storybook-deployer": "^2.8.16",
     "@svgr/rollup": "^8.0.1",
     "@svgr/webpack": "^8.0.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -43,7 +46,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=10b69a5dab76",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "eslintConfig": {
     "extends": [
@@ -118,5 +122,10 @@
     "storybook-color-picker": "^3.1.0",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
+  },
+  "storybook-deployer": {
+    "gitUsername": "kimhyerin0909",
+    "gitEmail": "khyerin0909@gmail.com",
+    "commitMessage": "Deploy Storybook [skip ci] "
   }
 }

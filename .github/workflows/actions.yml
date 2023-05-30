@@ -1,0 +1,18 @@
+name: Build & Deploy DJ Simblue
+on:
+  push:
+    branches: [dist]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Github remote
+        run: git remote set-url origin git@github.com:kimhyerin0909/dj-simblue.git
+        # run: git config --global url.https://${{ secrets.GITHUB_TOKEN }}@github.com/.insteadOf https://github.com/
+      - name: Install and Build 🔧
+        run: |
+          yarn install
+          yarn deploy-storybook -- --ci
+        env:
+          GITHUB_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
