@@ -26,8 +26,7 @@ export const TextInput = ({ areaSize = "SMALL", icon = "none", ...props }: TextI
           </Text>
         )}
       </Text>
-
-      <Input>
+      <Input {...props}>
         <TextInputStyle icon={icon} areaSize={areaSize} {...props} />
         {icon !== "none" && <Icon iconName={icon} color={props.iconColor} />}
       </Input>
