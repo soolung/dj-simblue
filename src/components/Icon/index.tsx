@@ -10,14 +10,9 @@ interface IconProps extends HTMLAttributes<HTMLDivElement> {
   color?: PaletteType;
 }
 
-export const Icon = ({
-  iconName = "ArrowBack",
-  size = "MEDIUM",
-  color = "MONO_BLACK",
-  ...props
-}: IconProps) => {
+export const Icon = ({ iconName = "ArrowBack", size = "MEDIUM", ...props }: IconProps) => {
   return (
-    <IconStyle {...props} color={color} size={size}>
+    <IconStyle {...props} size={size}>
       {createElement(getIconComponentFromName(iconName))}
     </IconStyle>
   );
@@ -25,15 +20,15 @@ export const Icon = ({
 
 export const IconStyle = styled.div<{
   size: IconSizeType;
-  color: PaletteType;
+  color?: PaletteType;
 }>`
   display: flex;
   align-items: center;
 
-  width: ${(props) => iconSize[props.size]}px;
+  width: ${({ size }) => iconSize[size]}px;
   object-fit: contain;
   path {
-    fill: ${({ color }) => getColorFromName(color)};
+    fill: ${({ color }) => color && getColorFromName(color)};
   }
 `;
 

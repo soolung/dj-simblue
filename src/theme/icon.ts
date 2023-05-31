@@ -11,3 +11,7 @@ export { ReactComponent as Help } from "../assets/icon/help.svg";
 export { ReactComponent as Lock } from "../assets/icon/lock.svg";
 export { ReactComponent as Person } from "../assets/icon/person.svg";
 export { ReactComponent as Search } from "../assets/icon/search.svg";
+
+export { ReactComponent as BSM } from "../assets/icon/bsm.svg";
+export { ReactComponent as Excel } from "../assets/icon/excel.svg";
+export { ReactComponent as Google } from "../assets/icon/google.svg";

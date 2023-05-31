@@ -2,22 +2,26 @@ import React, { HTMLAttributes } from "react";
 import styled from "@emotion/styled";
 import Text from "../Text";
 import { BtnSizeType, buttonSize, getSizeFromName } from "../../theme/size";
-import { BtnStateType, buttonState, getStateFromName } from "../../theme/state";
+import { css } from "@emotion/react";
+import palette from "../../theme/palette";
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size: BtnSizeType;
-  state: BtnStateType;
+  color: "primary" | "white";
+  isDisabled: boolean;
   text?: string;
 }
 
 export const Button = ({
   text = "button",
   size = "X_SMALL",
-  state = "ENABLED",
+  isDisabled = false,
+  color = "primary",
   children,
+  ...props
 }: ButtonProps) => {
   return (
-    <ButtonStyle size={size} state={state}>
+    <ButtonStyle color={color} size={size} isDisabled={isDisabled} {...props}>
       {children}
       <Text typo={`LABEL_${size}`}>{text}</Text>
     </ButtonStyle>
@@ -30,8 +34,28 @@ export const ButtonStyle = styled.button<ButtonProps>`
   border-radius: 0.4rem;
   color: white;
   gap: 0.625rem;
+  background-color: ${palette.PRIMARY_400};
+
   ${({ size }) => getSizeFromName(buttonSize, size)}
-  ${({ state }) => getStateFromName(buttonState, state)}
+  ${({ isDisabled }) =>
+    isDisabled &&
+    css`
+      color: ${palette.GRAY_400};
+      background-color: ${palette.GRAY_200};
+    `}
+
+
+    ${({ color }) =>
+    color === "white" &&
+    css`
+      color: ${palette.MONO_BLACK};
+      border: 2px solid ${palette.GRAY_50};
+      background-color: ${palette.MONO_WHITE};
+
+      &:active {
+        background-color: ${palette.GRAY_50};
+      }
+    `}
 
   &:active {
     box-shadow: inset 999px 999px 4px rgba(255, 255, 255, 0.2);

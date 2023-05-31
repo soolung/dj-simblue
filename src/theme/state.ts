@@ -1,30 +1,6 @@
 import { css } from "@emotion/react";
 import palette from "./palette";
 
-export const buttonState = {
-  ENABLED: css`
-    background-color: ${palette.PRIMARY_400};
-  `,
-  DISABLED: css`
-    color: ${palette.GRAY_400};
-    background-color: ${palette.GRAY_200};
-  `,
-};
-
-export const toggleState = {
-  ENABLED: css`
-    span {
-      background-color: ${palette.MONO_WHITE};
-    }
-  `,
-  DISABLED: css`
-    background-color: ${palette.GRAY_100};
-    span {
-      background-color: ${palette.GRAY_300};
-    }
-  `,
-};
-
 export const checkboxState = {
   CHECKED: css`
     background-color: ${palette.PRIMARY_400};
@@ -70,17 +46,15 @@ export const dateState = {
   `,
 };
 
-export type BtnStateType = keyof typeof buttonState;
-export type ToggleStateType = keyof typeof toggleState;
 export type CheckboxStateType = keyof typeof checkboxState;
 export type RadioStateType = keyof typeof radioState;
 export type DateStateType = keyof typeof dateState;
 
 export const getStateFromName = (
   as: any,
-  state: BtnStateType | ToggleStateType | CheckboxStateType | RadioStateType | DateStateType
+  state: CheckboxStateType | RadioStateType | DateStateType
 ) => {
   return as[state];
 };
 
-export default { buttonState, toggleState, checkboxState, radioState, dateState };
+export default { checkboxState, radioState, dateState };

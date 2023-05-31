@@ -1,24 +1,27 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { ToggleStateType, getStateFromName, toggleState } from "../../../theme/state";
 import { useState } from "react";
 import palette from "../../../theme/palette";
 import { css } from "@emotion/react";
 
 interface ToggleProps {
-  state: ToggleStateType;
+  isDiabled: boolean;
 }
 
 interface ToggleStyleProps {
-  state: ToggleStateType;
+  isDiabled: boolean;
   behavior: boolean;
 }
 
-export const Toggle = (props: ToggleProps) => {
+export const Toggle = ({ isDiabled = false, ...props }: ToggleProps) => {
   const [isCheck, setIsCheck] = useState<boolean>(false);
 
   return (
-    <ToggleStyle behavior={isCheck} state={props.state} onClick={() => setIsCheck((prev) => !prev)}>
+    <ToggleStyle
+      behavior={isCheck}
+      isDiabled={isDiabled}
+      {...props}
+      onClick={() => setIsCheck((prev) => !prev)}>
       <Thumb />
     </ToggleStyle>
   );
@@ -32,6 +35,7 @@ const ToggleStyle = styled.button<ToggleStyleProps>`
   border-radius: 50px;
   background-color: ${palette.GRAY_100};
   cursor: pointer;
+
   ${({ behavior }) =>
     behavior &&
     css`
@@ -40,7 +44,15 @@ const ToggleStyle = styled.button<ToggleStyleProps>`
         transform: translateX(22px);
       }
     `}
-  ${({ state }) => getStateFromName(toggleState, state)}
+
+  ${({ isDiabled }) =>
+    isDiabled &&
+    css`
+      background-color: ${palette.GRAY_100};
+      span {
+        background-color: ${palette.GRAY_300};
+      }
+    `}
 `;
 
 const Thumb = styled.span`

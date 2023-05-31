@@ -15,24 +15,18 @@ interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
   isRequired?: boolean;
 }
 
-export const TextInput = ({
-  areaSize = "SMALL",
-  labelText = "Label",
-  icon = "none",
-  ...props
-}: TextInputProps) => {
+export const TextInput = ({ areaSize = "SMALL", icon = "none", ...props }: TextInputProps) => {
   return (
     <TextInputBox>
       <Text typo="LABEL_MEDIUM">
-        {labelText}
+        {props.labelText}
         {props.isRequired && (
           <Text typo="PARAGRAPH_MEDIUM" textColor="PRIMARY_400">
             {" *"}
           </Text>
         )}
       </Text>
-
-      <Input>
+      <Input {...props}>
         <TextInputStyle icon={icon} areaSize={areaSize} {...props} />
         {icon !== "none" && <Icon iconName={icon} color={props.iconColor} />}
       </Input>
@@ -65,7 +59,7 @@ const Input = styled.div`
 const TextInputStyle = styled.input<TextInputProps>`
   width: 100%;
   border-radius: 0.75rem;
-  border: 1px solid ${palette.GRAY_100};
+  border: 2px solid ${palette.GRAY_100};
   padding-left: ${({ icon }) => (icon !== "none" ? 2.5 : 1)}rem;
   padding-right: 1rem;
   ${({ areaSize }) => getSizeFromName(inputSize, areaSize)}
