@@ -42,7 +42,6 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "release": "./scripts/release.sh",
     "build": "rollup -c",
     "build-storybook": "storybook build",
     "build:types": "tsc --emitDeclarationOnly",
