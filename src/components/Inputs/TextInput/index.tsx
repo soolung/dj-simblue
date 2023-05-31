@@ -15,16 +15,11 @@ interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
   isRequired?: boolean;
 }
 
-export const TextInput = ({
-  areaSize = "SMALL",
-  labelText = "Label",
-  icon = "none",
-  ...props
-}: TextInputProps) => {
+export const TextInput = ({ areaSize = "SMALL", icon = "none", ...props }: TextInputProps) => {
   return (
     <TextInputBox>
       <Text typo="LABEL_MEDIUM">
-        {labelText}
+        {props.labelText}
         {props.isRequired && (
           <Text typo="PARAGRAPH_MEDIUM" textColor="PRIMARY_400">
             {" *"}
