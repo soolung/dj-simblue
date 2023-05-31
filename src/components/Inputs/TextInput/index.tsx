@@ -60,7 +60,7 @@ const Input = styled.div`
 const TextInputStyle = styled.input<TextInputProps>`
   width: 100%;
   border-radius: 0.75rem;
-  border: 1px solid ${palette.GRAY_100};
+  border: 2px solid ${palette.GRAY_100};
   padding-left: ${({ icon }) => (icon !== "none" ? 2.5 : 1)}rem;
   padding-right: 1rem;
   ${({ areaSize }) => getSizeFromName(inputSize, areaSize)}
