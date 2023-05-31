@@ -1,6 +1,6 @@
 {
   "name": "@k99hyerin/dj-simblue",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": false,
   "readme": "ERROR: No README data found!",
   "_id": "dj-simblue@1.0.0",
@@ -41,11 +41,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "release": "auto shipit --base-branch=dist",
-    "build": "rollup -c",
     "storybook": "storybook dev -p 6006",
+    "build": "rollup -c",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=10b69a5dab76",
     "build:types": "tsc --emitDeclarationOnly",
     "deploy-storybook": "storybook-to-ghpages"
   },
