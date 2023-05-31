@@ -30,6 +30,7 @@ export const Button = ({
 
 export const ButtonStyle = styled.button<ButtonProps>`
   display: inline-flex;
+  justify-content: center;
   align-items: center;
   border-radius: 0.4rem;
   color: white;
