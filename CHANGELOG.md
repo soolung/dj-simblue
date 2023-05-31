@@ -1,6 +1,11 @@
-# v0.1.0 (Fri May 19 2023)
+# v1.1.0 (Wed May 31 2023)
 
-- 뱃지, 버튼, 체크박스 등의 기본 UI 추가
+- white button 추가
+- 컴포넌트들 disabled 로 만드는 걸 boolean으로
+- TextInput label 입력 안 해도 되게
+- input text border 2px
+- TextInput placeholder
+- BSM, Google 아이콘 추가
 
 #### Authors: 1
 
