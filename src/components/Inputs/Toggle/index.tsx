@@ -5,11 +5,11 @@ import palette from "../../../theme/palette";
 import { css } from "@emotion/react";
 
 interface ToggleProps {
-  isDiabled: boolean;
+  isDiabled?: boolean;
 }
 
 interface ToggleStyleProps {
-  isDiabled: boolean;
+  isDiabled?: boolean;
   behavior: boolean;
 }
 

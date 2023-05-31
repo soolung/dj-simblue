@@ -8,7 +8,7 @@ import palette from "../../theme/palette";
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size: BtnSizeType;
   color: "primary" | "white";
-  isDisabled: boolean;
+  isDisabled?: boolean;
   text?: string;
 }
 
