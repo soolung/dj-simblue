@@ -16,7 +16,7 @@ interface PropsType extends HTMLAttributes<HTMLTableElement> {
   hover?: boolean;
 }
 
-export const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => {
+const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => {
   const existsData = (): boolean => !!(children && (children as ReactNode[]).length > 0);
 
   return (
@@ -42,6 +42,8 @@ export const Table = ({ children, width = "100%", headTitle, ...props }: PropsTy
     </TableLayout>
   );
 };
+
+export default Table;
 
 const TableLayout = styled.table<{
   width: string;
