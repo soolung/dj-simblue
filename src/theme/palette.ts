@@ -10,6 +10,7 @@ const palette = {
   MONO_BLACK: "#000000",
   MONO_WHITE: "#FFFFFF",
 
+  GRAY_20: "#FAFAFA",
   GRAY_50: "#F3F3F3",
   GRAY_100: "#E8E8E8",
   GRAY_200: "#D1D1D1",

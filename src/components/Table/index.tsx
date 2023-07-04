@@ -1,52 +1,101 @@
-import React from "react";
+import React, { HTMLAttributes, ReactNode } from "react";
+import Text from "../Text";
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
 
-interface TableProps {}
+export interface HeadType {
+  name: string;
+  size: string;
+  align?: "left" | "center" | "right";
+}
 
-export const Table = () => {
+interface PropsType extends HTMLAttributes<HTMLTableElement> {
+  children: ReactNode | ReactNode[];
+  width?: string;
+  headTitle: HeadType[];
+  hover?: boolean;
+}
+
+export const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => {
+  const existsData = (): boolean => !!(children && (children as ReactNode[]).length > 0);
+
   return (
-    <TableStyle>
-      <thead>
+    <TableLayout {...props} width={width} existsData={existsData()}>
+      <TableHeadBox>
         <tr>
-          <th>헤더</th>
-          <th>헤더</th>
+          {headTitle.map((h, index) => (
+            <TableItem align={h.align} headWidth={h.size} key={index}>
+              <Text typo="LABEL_SMALL" children={h.name} />
+            </TableItem>
+          ))}
         </tr>
-      </thead>
+      </TableHeadBox>
       <tbody>
-        <tr>
-          <td>내용</td>
-          <td>내용</td>
-        </tr>
-        <tr>
-          <td>내용</td>
-          <td>내용</td>
-        </tr>
-        <tr>
-          <td>내용</td>
-          <td>내용</td>
-        </tr>
+        {existsData() ? (
+          children
+        ) : (
+          <CenterRow>
+            <Text typo="PARAGRAPH_SMALL">데이터가 없습니다!</Text>
+          </CenterRow>
+        )}
       </tbody>
-    </TableStyle>
+    </TableLayout>
   );
 };
 
-const TableStyle = styled.table`
-  background-color: ${palette.MONO_WHITE};
-  thead {
-    width: 100%;
-    background-color: ${palette.GRAY_50};
-  }
+const TableLayout = styled.table<{
+  width: string;
+  hover?: boolean;
+  existsData: boolean;
+}>`
+  width: ${({ width }) => width};
+  border-spacing: 0;
+  table-layout: fixed;
+  border-radius: 8px;
 
-  th {
-    border-top: 1px solid ${palette.GRAY_100};
-  }
+  tbody > tr {
+    cursor: ${({ hover, existsData }) => (existsData && hover ? "pointer" : "")};
 
-  th,
-  td {
-    padding: 0.875rem 1rem;
-    border-bottom: 1px solid ${palette.GRAY_100};
+    &:hover {
+      background-color: ${({ hover }) => (hover ? palette.GRAY_20 : "")};
+    }
   }
 `;
 
-export default Table;
+const TableHeadBox = styled.thead`
+  background-color: ${palette.GRAY_50};
+`;
+
+export const TableItem = styled.td<{ headWidth?: string; align?: "left" | "center" | "right" }>`
+  width: ${({ headWidth, align }) => {
+    if (headWidth === "small") return "10%";
+    if (headWidth === "medium") return "30%";
+    if (align === "left" || align === "right") return "calc(40% - 30px)";
+
+    return "40%";
+  }};
+  height: 55px;
+  border-top: ${({ headWidth }) => (headWidth ? `1px solid ${palette.GRAY_100}` : "")};
+  border-bottom: 1px solid ${palette.GRAY_100};
+  padding-left: ${({ align }) => (align === "left" ? "30px" : "")};
+  padding-right: ${({ align }) => (align === "right" ? "30px" : "")};
+  text-align: ${({ align }) => (align === undefined ? "center" : align)};
+
+  img {
+    object-fit: contain;
+    height: 30px;
+  }
+`;
+
+const CenterRow = styled.tr`
+  padding: 64px 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(50%);
+`;
+
+export const TableRow = styled.tr<{
+  checked?: boolean;
+}>`
+  background-color: ${({ checked }) => (checked ? palette.GRAY_50 : "")};
+`;
