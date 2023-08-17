@@ -2,6 +2,7 @@ import React, { HTMLAttributes, ReactNode } from "react";
 import Text from "../Text";
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
+import TableItem from "./TableItem";
 
 export interface HeadType {
   name: string;
@@ -68,36 +69,9 @@ const TableHeadBox = styled.thead`
   background-color: ${palette.GRAY_50};
 `;
 
-export const TableItem = styled.td<{ headWidth?: string; align?: "left" | "center" | "right" }>`
-  width: ${({ headWidth, align }) => {
-    if (headWidth === "small") return "10%";
-    if (headWidth === "medium") return "30%";
-    if (align === "left" || align === "right") return "calc(40% - 30px)";
-
-    return "40%";
-  }};
-  height: 55px;
-  border-top: ${({ headWidth }) => (headWidth ? `1px solid ${palette.GRAY_100}` : "")};
-  border-bottom: 1px solid ${palette.GRAY_100};
-  padding-left: ${({ align }) => (align === "left" ? "30px" : "")};
-  padding-right: ${({ align }) => (align === "right" ? "30px" : "")};
-  text-align: ${({ align }) => (align === undefined ? "center" : align)};
-
-  img {
-    object-fit: contain;
-    height: 30px;
-  }
-`;
-
 const CenterRow = styled.tr`
   padding: 64px 0;
   position: absolute;
   left: 50%;
   transform: translateX(50%);
-`;
-
-export const TableRow = styled.tr<{
-  checked?: boolean;
-}>`
-  background-color: ${({ checked }) => (checked ? palette.GRAY_50 : "")};
 `;

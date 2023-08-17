@@ -1,7 +1,9 @@
 import React from "react";
 import type { StoryObj } from "@storybook/react";
-import Table, { HeadType, TableItem, TableRow } from "../components/Table";
+import Table, { HeadType } from "../components/Table";
 import Text from "../components/Text";
+import TableItem from "../components/Table/TableItem";
+import TableRow from "../components/Table/TableRow";
 
 type Story = StoryObj<typeof Table>;
 
