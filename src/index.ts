@@ -11,6 +11,8 @@ export { default as DatePicker } from "./components/DatePicker";
 export { default as Dropdown } from "./components/Dropdown";
 export { default as Icon } from "./components/Icon";
 export { default as Table } from "./components/Table";
+export { default as TableItem } from "./components/Table/TableItem";
+export { default as TableRow } from "./components/Table/TableRow";
 export { default as Checkbox } from "./components/Inputs/Checkbox";
 export { default as Radio } from "./components/Inputs/Radio";
 export { default as Search } from "./components/Inputs/Search";

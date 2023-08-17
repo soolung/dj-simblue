@@ -1,9 +1,9 @@
 {
   "name": "@k99hyerin/dj-simblue",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "private": false,
   "readme": "dj 심청이",
-  "_id": "dj-simblue@1.1.5",
+  "_id": "dj-simblue@1.1.6",
   "description": "design system for simblue web",
   "main": "dist/index.js",
   "repository": "https://github.com/soolung/dj-simblue.git",
