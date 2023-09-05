@@ -11,6 +11,7 @@ export const DatePicker = () => {
   const [selected, setSelected] = useState<DateType>(getNewDateObj(new Date()));
   const [endDate, setEndDate] = useState<DateType | null>(null);
   const [selectedMonth, setSelectedMonth] = useState(getMonthDate(selected));
+  const [isPickerOpened, setIsPickerOpened] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const [clickedOption, setClickedOption] = useState<"month" | "year">("month");
 
@@ -71,81 +72,93 @@ export const DatePicker = () => {
 
   return (
     <>
-      {isOpened && (
-        <OptionPicker
-          setClicked={setIsOpened}
-          selected={selected}
-          setSelected={setSelected}
-          type={clickedOption}
-        />
-      )}
-      <S.PickerStyle>
-        <S.Head>
-          <Icon
-            onClick={() => moveSelectedMonth("last")}
-            iconName="ArrowBack"
-            style={{ cursor: "pointer" }}
-          />
-          <S.HeadNow>
-            <S.HeadPicker
-              onClick={() => {
-                setIsOpened(true);
-                setClickedOption("year");
-              }}>
-              <Text typo="LABEL_MEDIUM">{selected.year}년</Text>
-              <Icon iconName="ArrowDown" />
-            </S.HeadPicker>
-            <S.HeadPicker
-              onClick={() => {
-                setIsOpened(true);
-                setClickedOption("month");
-              }}>
-              <Text typo="LABEL_MEDIUM">{selected.month}월</Text>
-              <Icon iconName="ArrowDown" />
-            </S.HeadPicker>
-          </S.HeadNow>
-          <Icon
-            onClick={() => moveSelectedMonth("next")}
-            iconName="ArrowFront"
-            style={{ cursor: "pointer" }}
-          />
-        </S.Head>
-        <S.TableRows>
-          {days.map((d) => (
-            <S.HeadRow>
-              <Text typo="PARAGRAPH_SMALL" textColor="GRAY_800">
-                {d}
-              </Text>
-            </S.HeadRow>
-          ))}
-        </S.TableRows>
-        {selectedMonth.date.map((w) => (
-          <S.TableRows>
-            {w.map((m) => (
-              <S.RowBox state={getStateOfDate(m)}>
-                <S.TableRow
-                  onDragEnter={() => console.log(m)}
-                  onClick={() => selectDate(m)}
-                  state={getStateOfDate(m)}>
-                  <Text
-                    typo="PARAGRAPH_SMALL"
-                    textColor={
-                      getStateOfDate(m) === "START" ||
-                      getStateOfDate(m) === "END" ||
-                      getStateOfDate(m) === "POINT"
-                        ? "MONO_WHITE"
-                        : m.month !== selected.month
-                        ? "GRAY_400"
-                        : "MONO_BLACK"
-                    }>
-                    {m.date}
+      <Text
+        onClick={() => setIsPickerOpened((prev) => !prev)}
+        style={{ marginBottom: "1rem" }}
+        typo="PARAGRAPH_SMALL"
+        textColor="GRAY_700">
+        {selected.year}.{selected.month}.{selected.date}
+        {endDate && ` ~ ${endDate.year}.${endDate.month}.${endDate.date}`}
+      </Text>
+      {isPickerOpened && (
+        <>
+          {isOpened && (
+            <OptionPicker
+              setClicked={setIsOpened}
+              selected={selected}
+              setSelected={setSelected}
+              type={clickedOption}
+            />
+          )}
+          <S.PickerStyle>
+            <S.Head>
+              <Icon
+                onClick={() => moveSelectedMonth("last")}
+                iconName="ArrowBack"
+                style={{ cursor: "pointer" }}
+              />
+              <S.HeadNow>
+                <S.HeadPicker
+                  onClick={() => {
+                    setIsOpened(true);
+                    setClickedOption("year");
+                  }}>
+                  <Text typo="LABEL_MEDIUM">{selected.year}년</Text>
+                  <Icon iconName="ArrowDown" />
+                </S.HeadPicker>
+                <S.HeadPicker
+                  onClick={() => {
+                    setIsOpened(true);
+                    setClickedOption("month");
+                  }}>
+                  <Text typo="LABEL_MEDIUM">{selected.month}월</Text>
+                  <Icon iconName="ArrowDown" />
+                </S.HeadPicker>
+              </S.HeadNow>
+              <Icon
+                onClick={() => moveSelectedMonth("next")}
+                iconName="ArrowFront"
+                style={{ cursor: "pointer" }}
+              />
+            </S.Head>
+            <S.TableRows>
+              {days.map((d) => (
+                <S.HeadRow>
+                  <Text typo="PARAGRAPH_SMALL" textColor="GRAY_800">
+                    {d}
                   </Text>
-                </S.TableRow>
-              </S.RowBox>
+                </S.HeadRow>
+              ))}
+            </S.TableRows>
+            {selectedMonth.date.map((w) => (
+              <S.TableRows>
+                {w.map((m) => (
+                  <S.RowBox state={getStateOfDate(m)}>
+                    <S.TableRow
+                      onDragEnter={() => console.log(m)}
+                      onClick={() => selectDate(m)}
+                      state={getStateOfDate(m)}>
+                      <Text
+                        typo="PARAGRAPH_SMALL"
+                        textColor={
+                          getStateOfDate(m) === "START" ||
+                          getStateOfDate(m) === "END" ||
+                          getStateOfDate(m) === "POINT"
+                            ? "MONO_WHITE"
+                            : m.month !== selected.month
+                            ? "GRAY_400"
+                            : "MONO_BLACK"
+                        }>
+                        {m.date}
+                      </Text>
+                    </S.TableRow>
+                  </S.RowBox>
+                ))}
+              </S.TableRows>
             ))}
-          </S.TableRows>
-        ))}
-      </S.PickerStyle>
+          </S.PickerStyle>
+        </>
+      )}
     </>
   );
 };
