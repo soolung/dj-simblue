@@ -9,7 +9,7 @@ interface DropItemProps extends HTMLAttributes<HTMLDivElement> {
   dropItem: optionItem;
 }
 
-export const DropItem = (props: DropItemProps) => {
+const DropItem = (props: DropItemProps) => {
   return (
     <OptionItem {...props} state={props.dropItem.state}>
       <Text
@@ -37,3 +37,5 @@ const OptionItem = styled.div<{ state: "ENABLED" | "DISABLED" }>`
       }
     `}
 `;
+
+export default DropItem;
