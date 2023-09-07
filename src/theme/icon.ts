@@ -8,6 +8,7 @@ export { ReactComponent as Check } from "../assets/icon/check.svg";
 export { ReactComponent as Close } from "../assets/icon/close.svg";
 export { ReactComponent as Cloud } from "../assets/icon/cloud.svg";
 export { ReactComponent as Copy } from "../assets/icon/copy.svg";
+export { ReactComponent as DoNotDisturb } from "../assets/icon/do_not_disturb.svg";
 export { ReactComponent as Edit } from "../assets/icon/edit.svg";
 export { ReactComponent as Error } from "../assets/icon/error.svg";
 export { ReactComponent as Excel } from "../assets/icon/excel.svg";
