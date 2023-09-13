@@ -1,9 +1,8 @@
-import React from "react";
 import type { StoryObj } from "@storybook/react";
 import { Dropdown } from "../components/Dropdown";
-import { DropItem } from "../components/Dropdown/DropItem";
 import { optionItem } from "../components/Dropdown/type";
 import { useState } from "react";
+import DropItem from '../components/Dropdown/DropItem';
 
 const exampleOptions: optionItem[] = [
   {
@@ -33,10 +32,10 @@ export default {
 };
 
 export const Default: Story = {
-  render: () => <DefaultSearch />,
+  render: () => <DefaultDropdown />,
 };
 
-const DefaultSearch = () => {
+const DefaultDropdown = () => {
   const [selected, setSelected] = useState(exampleOptions[0]);
   const [isClicked, setIsClicked] = useState(false);
 
@@ -51,7 +50,7 @@ const DefaultSearch = () => {
         {exampleOptions
           .filter((i) => i.name !== selected.name)
           .map((o) => (
-            <DropItem dropItem={o} onClick={() => selectItem(o)} />
+            <DropItem dropItem={o} onClick={() => selectItem(o)} key={o.name} />
           ))}
       </Dropdown>
     </div>

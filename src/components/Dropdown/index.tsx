@@ -32,6 +32,7 @@ const DropdownStyle = styled.div`
   width: 100%;
   flex-direction: column;
   gap: 0.75rem;
+  position: relative;
 `;
 
 const DropdownHead = styled.div<{ isClicked: boolean }>`
@@ -48,10 +49,12 @@ const DropdownHead = styled.div<{ isClicked: boolean }>`
 `;
 
 const Content = styled.div`
+  position: absolute;
   width: 100%;
   background-color: ${palette.MONO_WHITE};
   border-radius: 0.75rem;
   filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
+  top: 150%;
 `;
 
 export default Dropdown;

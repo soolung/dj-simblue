@@ -3,13 +3,19 @@ import palette from "../../theme/palette";
 import { css } from "@emotion/react";
 import { DateStateType, dateState, getStateFromName } from "../../theme/state";
 
+export const Container = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
 export const PickerStyle = styled.div`
   position: absolute;
+  top: 150%;
   z-index: 3;
   width: 18.375rem;
   padding: 1rem 0.7rem;
   background-color: ${palette.MONO_WHITE};
-  box-shadow: 0px 0.25rem 1rem rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.12);
   border-radius: 0.75rem;
 `;
 
