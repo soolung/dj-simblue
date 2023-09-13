@@ -5,7 +5,11 @@ export type DateType = {
   day: number;
 };
 
-export const getNewDateObj = (newDate: Date): DateType => {
+export const toDate = (date: DateType): Date => {
+  return new Date(date.year, date.month - 1, date.date);
+}
+
+export const fromDate = (newDate: Date): DateType => {
   const year = newDate.getFullYear();
   const month = newDate.getMonth() + 1;
   const date = newDate.getDate();
@@ -15,19 +19,19 @@ export const getNewDateObj = (newDate: Date): DateType => {
 };
 
 export const getMonthDate = (newDate: DateType, page = 0) => {
-  const doMonth = getNewDateObj(new Date(newDate.year, newDate.month - 1 + page, 1));
+  const doMonth = fromDate(new Date(newDate.year, newDate.month - 1 + page, 1));
 
-  const prevMonthLastDate = getNewDateObj(new Date(doMonth.year, doMonth.month - 1, 0));
+  const prevMonthLastDate = fromDate(new Date(doMonth.year, doMonth.month - 1, 0));
   const startDate =
     prevMonthLastDate.day === 0
       ? prevMonthLastDate
       : prevMonthLastDate.day === 6
       ? doMonth
-      : getNewDateObj(new Date(doMonth.year, doMonth.month - 1, -prevMonthLastDate.day));
+      : fromDate(new Date(doMonth.year, doMonth.month - 1, -prevMonthLastDate.day));
   let monthDate:DateType[] = [];
   for (let i = 0; i < 42; i++) {
     monthDate.push(
-      getNewDateObj(new Date(startDate.year, startDate.month - 1, startDate.date + i))
+      fromDate(new Date(startDate.year, startDate.month - 1, startDate.date + i))
     );
   }
 

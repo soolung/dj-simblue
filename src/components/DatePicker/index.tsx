@@ -2,73 +2,86 @@ import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import { Icon } from "../Icon";
 import Text from "../Text";
-import { DateType, getMonthDate, getNewDateObj } from "../../utils/date";
+import { DateType, fromDate, getMonthDate, toDate } from "../../utils/date";
 import { OptionPicker } from "./OptionPicker";
 
 const days = ["일", "월", "화", " 수", "목", "금", "토"];
 
-export const DatePicker = () => {
-  const [selected, setSelected] = useState<DateType>(getNewDateObj(new Date()));
+interface DatePickerProps {
+  handleSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
+  handleEndDate: React.Dispatch<React.SetStateAction<Date | null>>;
+}
+
+export const DatePicker = ({ handleSelectedDate, handleEndDate }: DatePickerProps) => {
+  const [selectedDate, setSelectedDate] = useState<DateType>(fromDate(new Date()));
   const [endDate, setEndDate] = useState<DateType | null>(null);
-  const [selectedMonth, setSelectedMonth] = useState(getMonthDate(selected));
+  const [selectedMonth, setSelectedMonth] = useState(getMonthDate(selectedDate));
   const [isPickerOpened, setIsPickerOpened] = useState(false);
   const [isOpened, setIsOpened] = useState(false);
   const [clickedOption, setClickedOption] = useState<"month" | "year">("month");
 
+  useEffect(() => {
+    handleSelectedDate(toDate(selectedDate));
+  }, [selectedDate]);
+
+  useEffect(() => {
+    handleEndDate(endDate && toDate(endDate));
+  }, [endDate])
+
   const moveSelectedMonth = (type: "last" | "next") => {
     if (type === "last") {
-      if (selected.month > 1) setSelected({ ...selected, month: selected.month - 1 });
-      else setSelected({ ...selected, year: selected.year - 1, month: 12 });
+      if (selectedDate.month > 1) setSelectedDate({ ...selectedDate, month: selectedDate.month - 1 });
+      else setSelectedDate({ ...selectedDate, year: selectedDate.year - 1, month: 12 });
     }
     if (type === "next") {
-      if (selected.month < 12) setSelected({ ...selected, month: selected.month + 1 });
-      else setSelected({ ...selected, year: selected.year + 1, month: 1 });
+      if (selectedDate.month < 12) setSelectedDate({ ...selectedDate, month: selectedDate.month + 1 });
+      else setSelectedDate({ ...selectedDate, year: selectedDate.year + 1, month: 1 });
     }
     setEndDate(null);
-    setSelected({ ...selected, date: 1 });
+    setSelectedDate({ ...selectedDate, date: 1 });
   };
 
   const selectDate = (item: DateType) => {
     if (
-      item.date === selected.date &&
-      item.month === selected.month &&
-      item.year === selected.year
+      item.date === selectedDate.date &&
+      item.month === selectedDate.month &&
+      item.year === selectedDate.year
     ) {
-      setSelected(item);
+      setSelectedDate(item);
       setEndDate(null);
     } else if (endDate === null) {
-      if (item.date < selected.date && item.month > selected.month) setEndDate(item);
-      else if (item.date < selected.date || item.month < selected.month) {
-        setEndDate(selected);
-        setSelected(item);
+      if (item.date < selectedDate.date && item.month > selectedDate.month) setEndDate(item);
+      else if (item.date < selectedDate.date || item.month < selectedDate.month) {
+        setEndDate(selectedDate);
+        setSelectedDate(item);
       } else setEndDate(item);
     } else {
-      setSelected(item);
+      setSelectedDate(item);
       setEndDate(null);
     }
   };
 
   const getStateOfDate = (date: DateType) => {
     if (endDate !== null) {
-      if (date.date === selected.date && date.month === selected.month) return "START";
+      if (date.date === selectedDate.date && date.month === selectedDate.month) return "START";
       else if (date.date === endDate?.date && date.month === endDate?.month) return "END";
       else if (
-        date.date > selected.date &&
+        date.date > selectedDate.date &&
         date.date < endDate?.date &&
-        date.month === selected.month
+        date.month === selectedDate.month
       )
         return "ELEMENT";
-      else if (endDate.month > selected.month) {
-        if (date.date > selected.date && date.month === selected.month) return "ELEMENT";
+      else if (endDate.month > selectedDate.month) {
+        if (date.date > selectedDate.date && date.month === selectedDate.month) return "ELEMENT";
         else if (date.date < endDate.date && date.month === endDate.month) return "ELEMENT";
       }
-    } else if (date.date === selected.date && date.month === selected.month) return "POINT";
+    } else if (date.date === selectedDate.date && date.month === selectedDate.month) return "POINT";
     else return "NONE";
   };
 
   useEffect(() => {
-    setSelectedMonth(getMonthDate(selected));
-  }, [selected]);
+    setSelectedMonth(getMonthDate(selectedDate));
+  }, [selectedDate]);
 
   return (
     <S.Container>
@@ -76,7 +89,7 @@ export const DatePicker = () => {
         onClick={() => setIsPickerOpened((prev) => !prev)}
         typo="PARAGRAPH_SMALL"
         textColor="GRAY_700">
-        {selected.year}.{selected.month}.{selected.date}
+        {selectedDate.year}.{selectedDate.month}.{selectedDate.date}
         {endDate && ` ~ ${endDate.year}.${endDate.month}.${endDate.date}`}
       </Text>
       {isPickerOpened && (
@@ -84,8 +97,8 @@ export const DatePicker = () => {
           {isOpened && (
             <OptionPicker
               setClicked={setIsOpened}
-              selected={selected}
-              setSelected={setSelected}
+              selected={selectedDate}
+              setSelected={setSelectedDate}
               type={clickedOption}
             />
           )}
@@ -102,7 +115,7 @@ export const DatePicker = () => {
                     setIsOpened(true);
                     setClickedOption("year");
                   }}>
-                  <Text typo="LABEL_MEDIUM">{selected.year}년</Text>
+                  <Text typo="LABEL_MEDIUM">{selectedDate.year}년</Text>
                   <Icon iconName="ArrowDown" />
                 </S.HeadPicker>
                 <S.HeadPicker
@@ -110,7 +123,7 @@ export const DatePicker = () => {
                     setIsOpened(true);
                     setClickedOption("month");
                   }}>
-                  <Text typo="LABEL_MEDIUM">{selected.month}월</Text>
+                  <Text typo="LABEL_MEDIUM">{selectedDate.month}월</Text>
                   <Icon iconName="ArrowDown" />
                 </S.HeadPicker>
               </S.HeadNow>
@@ -144,9 +157,9 @@ export const DatePicker = () => {
                           getStateOfDate(m) === "END" ||
                           getStateOfDate(m) === "POINT"
                             ? "MONO_WHITE"
-                            : m.month !== selected.month
-                            ? "GRAY_400"
-                            : "MONO_BLACK"
+                            : m.month !== selectedDate.month
+                              ? "GRAY_400"
+                              : "MONO_BLACK"
                         }>
                         {m.date}
                       </Text>

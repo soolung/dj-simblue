@@ -77,11 +77,11 @@ export const RowBox = styled.div<{ state?: DateStateType }>`
   ${({ state }) =>
     state === "START"
       ? css`
-          background: linear-gradient(90deg, ${palette.MONO_WHITE} 40%, ${palette.PRIMARY_100});
+          background: linear-gradient(to right, ${palette.MONO_WHITE}, ${palette.PRIMARY_100});
         `
       : state === "END" &&
         css`
-          background: linear-gradient(90deg, ${palette.PRIMARY_100}, ${palette.MONO_WHITE} 40%);
+          background: linear-gradient(to right, ${palette.PRIMARY_100}, ${palette.MONO_WHITE});
         `}
 `;
 
