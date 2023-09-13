@@ -71,10 +71,9 @@ export const DatePicker = () => {
   }, [selected]);
 
   return (
-    <>
+    <S.Container>
       <Text
         onClick={() => setIsPickerOpened((prev) => !prev)}
-        style={{ marginBottom: "1rem" }}
         typo="PARAGRAPH_SMALL"
         textColor="GRAY_700">
         {selected.year}.{selected.month}.{selected.date}
@@ -159,7 +158,7 @@ export const DatePicker = () => {
           </S.PickerStyle>
         </>
       )}
-    </>
+    </S.Container>
   );
 };
 
