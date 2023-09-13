@@ -9,6 +9,7 @@ export { default as Badge } from "./components/Badge";
 export { default as Button } from "./components/Button";
 export { default as DatePicker } from "./components/DatePicker";
 export { default as Dropdown } from "./components/Dropdown";
+export { default as DropItem } from "./components/Dropdown/DropItem";
 export { default as Icon } from "./components/Icon";
 export { default as Table } from "./components/Table";
 export { default as TableItem } from "./components/Table/TableItem";
