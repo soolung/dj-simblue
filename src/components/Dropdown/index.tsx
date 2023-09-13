@@ -28,10 +28,7 @@ export const Dropdown = ({ ...props }: DropdownProps) => {
 };
 
 const DropdownStyle = styled.div`
-  display: flex;
   width: 100%;
-  flex-direction: column;
-  gap: 0.75rem;
   position: relative;
 `;
 
