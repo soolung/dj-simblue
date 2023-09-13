@@ -12,7 +12,7 @@ export const PickerStyle = styled.div`
   position: absolute;
   top: 150%;
   z-index: 3;
-  width: 18.375rem;
+  width: 18.5rem;
   padding: 1rem 0.7rem;
   background-color: ${palette.MONO_WHITE};
   box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.12);
@@ -41,7 +41,7 @@ export const HeadPicker = styled.div`
 export const TableRows = styled.div`
   display: grid;
   width: 100%;
-  grid-template-columns: 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem 2.625rem;
+  grid-template-columns: 14.3% 14.3% 14.3% 14.3% 14.3% 14.3% 14.3%;
 `;
 
 export const HeadRow = styled.div`
@@ -77,11 +77,11 @@ export const RowBox = styled.div<{ state?: DateStateType }>`
   ${({ state }) =>
     state === "START"
       ? css`
-          background: linear-gradient(90deg, ${palette.MONO_WHITE} 40%, ${palette.PRIMARY_100});
+          background: linear-gradient(to right, ${palette.MONO_WHITE}, ${palette.PRIMARY_100});
         `
       : state === "END" &&
         css`
-          background: linear-gradient(90deg, ${palette.PRIMARY_100}, ${palette.MONO_WHITE} 40%);
+          background: linear-gradient(to right, ${palette.PRIMARY_100}, ${palette.MONO_WHITE});
         `}
 `;
 

@@ -52,6 +52,9 @@ const Content = styled.div`
   border-radius: 0.75rem;
   filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.12));
   top: 150%;
+  z-index: 1;
+  max-height: 14rem;
+  overflow-y: scroll;
 `;
 
 export default Dropdown;
