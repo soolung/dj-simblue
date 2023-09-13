@@ -21,7 +21,7 @@ const exampleOptions: optionItem[] = [
   {
     name: "좋아요순",
     state: "DISABLED",
-  },
+  }
 ];
 
 type Story = StoryObj<typeof Dropdown>;
