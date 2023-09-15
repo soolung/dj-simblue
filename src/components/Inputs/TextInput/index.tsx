@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import React, { HTMLAttributes } from "react";
-import { InputSizeType, getSizeFromName, inputSize } from "../../../theme/size";
+import React, { InputHTMLAttributes } from "react";
+import { getSizeFromName, inputSize, InputSizeType } from "../../../theme/size";
 import palette, { PaletteType } from "../../../theme/palette";
 import Text from "../../Text";
 import { Icon } from "../../Icon";
 import { IconNameType } from "../../../utils/stories";
 
-interface TextInputProps extends HTMLAttributes<HTMLInputElement> {
+interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   areaSize: InputSizeType;
   labelText?: string;
   hintText?: string;
@@ -62,6 +62,7 @@ const TextInputStyle = styled.input<TextInputProps>`
   border: 2px solid ${palette.GRAY_100};
   padding-left: ${({ icon }) => (icon !== "none" ? 2.5 : 1)}rem;
   padding-right: 1rem;
+
   ${({ areaSize }) => getSizeFromName(inputSize, areaSize)}
   &::placeholder {
     color: ${palette.GRAY_700};
