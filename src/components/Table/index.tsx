@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from "react";
+import React, { ForwardedRef, forwardRef, HTMLAttributes, ReactNode } from "react";
 import Text from "../Text";
 import styled from "@emotion/styled";
 import palette from "../../theme/palette";
@@ -15,14 +15,20 @@ interface PropsType extends HTMLAttributes<HTMLTableElement> {
   width?: string;
   headTitle: HeadType[];
   hover?: boolean;
-  ref?: React.Ref<HTMLTableElement>;
 }
 
-const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => {
-  const existsData = (): boolean => !!(children && (children as ReactNode[]).length > 0);
-
+const Table = forwardRef(
+  ({
+     children,
+     width = "100%",
+     headTitle,
+     ...props
+   }: PropsType,
+   ref: ForwardedRef<HTMLTableElement>) => {
+    const existsData = (): boolean => !!(children && (children as ReactNode[]).length > 0);
+  
   return (
-    <TableLayout {...props} width={width} existsData={existsData()}>
+    <TableLayout {...props} width={width} existsData={existsData()} ref={ref}>
       <TableHeadBox>
         {headTitle.map((h, index) => (
           <TableItem align={h.align} headWidth={h.size} key={index}>
@@ -38,10 +44,11 @@ const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => 
             <Text typo="PARAGRAPH_SMALL">데이터가 없습니다!</Text>
           </CenterRow>
         )}
-      </tbody>
-    </TableLayout>
-  );
-};
+        </tbody>
+      </TableLayout>
+    );
+  }
+)
 
 export default Table;
 
