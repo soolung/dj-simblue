@@ -66,7 +66,7 @@ const TableLayout = styled.table<{
   }
 `;
 
-const TableHeadBox = styled.thead`
+const TableHeadBox = styled.tbody`
   background-color: ${palette.GRAY_50};
 `;
 
