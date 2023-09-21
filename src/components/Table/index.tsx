@@ -15,6 +15,7 @@ interface PropsType extends HTMLAttributes<HTMLTableElement> {
   width?: string;
   headTitle: HeadType[];
   hover?: boolean;
+  ref?: React.Ref<HTMLTableElement>;
 }
 
 const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => {
