@@ -26,19 +26,17 @@ const Table = forwardRef(
    }: PropsType,
    ref: ForwardedRef<HTMLTableElement>) => {
     const existsData = (): boolean => !!(children && (children as ReactNode[]).length > 0);
-
-    return (
-      <TableLayout {...props} width={width} existsData={existsData()} ref={ref}>
-        <TableHeadBox>
-          <tr>
-            {headTitle.map((h, index) => (
-              <TableItem align={h.align} headWidth={h.size} key={index}>
-                <Text typo="LABEL_SMALL" children={h.name} />
-              </TableItem>
-            ))}
-          </tr>
-        </TableHeadBox>
-        <tbody>
+  
+  return (
+    <TableLayout {...props} width={width} existsData={existsData()} ref={ref}>
+      <TableHeadBox>
+        {headTitle.map((h, index) => (
+          <TableItem align={h.align} headWidth={h.size} key={index}>
+            <Text typo="LABEL_SMALL" children={h.name} />
+          </TableItem>
+        ))}
+      </TableHeadBox>
+      <tbody>
         {existsData() ? (
           children
         ) : (
@@ -73,7 +71,7 @@ const TableLayout = styled.table<{
   }
 `;
 
-const TableHeadBox = styled.thead`
+const TableHeadBox = styled.tr`
   background-color: ${palette.GRAY_50};
 `;
 
