@@ -24,13 +24,11 @@ const Table = ({ children, width = "100%", headTitle, ...props }: PropsType) => 
   return (
     <TableLayout {...props} width={width} existsData={existsData()}>
       <TableHeadBox>
-        <tr>
-          {headTitle.map((h, index) => (
-            <TableItem align={h.align} headWidth={h.size} key={index}>
-              <Text typo="LABEL_SMALL" children={h.name} />
-            </TableItem>
-          ))}
-        </tr>
+        {headTitle.map((h, index) => (
+          <TableItem align={h.align} headWidth={h.size} key={index}>
+            <Text typo="LABEL_SMALL" children={h.name} />
+          </TableItem>
+        ))}
       </TableHeadBox>
       <tbody>
         {existsData() ? (
@@ -66,7 +64,7 @@ const TableLayout = styled.table<{
   }
 `;
 
-const TableHeadBox = styled.tbody`
+const TableHeadBox = styled.tr`
   background-color: ${palette.GRAY_50};
 `;
 
